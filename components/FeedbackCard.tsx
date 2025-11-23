@@ -22,14 +22,14 @@ export default function FeedbackCard({ feedback }: FeedbackCardProps) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 space-y-6">
-      <div className="border-b pb-4">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Evaluation Results</h3>
-        <div className="flex items-center gap-4">
-          <span className={`text-4xl font-bold ${getScoreColor(feedback.overallScore)}`}>
+    <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
+      <div className="border-b pb-3 sm:pb-4">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Evaluation Results</h3>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+          <span className={`text-3xl sm:text-4xl font-bold ${getScoreColor(feedback.overallScore)}`}>
             {feedback.overallScore.toFixed(1)}
           </span>
-          <span className="text-xl text-gray-600">
+          <span className="text-lg sm:text-xl text-gray-600">
             {getScoreLabel(feedback.overallScore)}
           </span>
         </div>
@@ -114,5 +114,6 @@ export default function FeedbackCard({ feedback }: FeedbackCardProps) {
     </div>
   );
 }
+
 
 

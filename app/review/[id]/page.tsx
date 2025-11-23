@@ -94,31 +94,31 @@ export default function ReviewPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-6 md:py-8 px-4">
+      <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <div className="flex items-center justify-between">
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Test Review</h1>
-              <p className="text-gray-600 mt-1">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Test Review</h1>
+              <p className="text-sm sm:text-base text-gray-600 mt-1">
                 {formatDate(testResult.testDate)} • Level: {testResult.level}
               </p>
             </div>
             <button
               onClick={() => router.push("/history")}
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors min-h-[44px] flex items-center"
             >
               ← Back to History
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {/* Progress Indicator */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-600">
                   Question {currentQuestionIndex + 1} of {testResult.questions.length}
@@ -172,13 +172,13 @@ export default function ReviewPage() {
             )}
 
             {/* Navigation */}
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={() =>
                   setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))
                 }
                 disabled={currentQuestionIndex === 0}
-                className="flex-1 bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 text-gray-800 py-3 px-6 rounded-lg font-semibold transition-colors"
+                className="flex-1 bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 text-gray-800 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
               >
                 Previous
               </button>
@@ -189,7 +189,7 @@ export default function ReviewPage() {
                   )
                 }
                 disabled={currentQuestionIndex === testResult.questions.length - 1}
-                className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+                className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
               >
                 Next
               </button>
@@ -197,14 +197,27 @@ export default function ReviewPage() {
           </div>
 
           {/* Sidebar - Feedback */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {testResult.feedback && (
               <FeedbackCard feedback={testResult.feedback} />
             )}
 
+            {/* Sample Answer */}
+            {(currentQuestion.sampleAnswer || currentQuestion.audioPath) && (
+              <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+                  모범 답안
+                </h3>
+                <SampleAnswerPlayer
+                  audioPath={currentQuestion.audioPath}
+                  sampleAnswer={currentQuestion.sampleAnswer}
+                />
+              </div>
+            )}
+
             {/* Question List */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
                 All Questions
               </h3>
               <div className="space-y-2">

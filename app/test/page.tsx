@@ -131,11 +131,11 @@ function TestPageContent() {
 
   if (isEvaluating) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="text-center space-y-4">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-indigo-600 mx-auto"></div>
-          <p className="text-xl text-gray-700">Evaluating your answers...</p>
-          <p className="text-gray-500">This may take a few moments</p>
+          <div className="animate-spin rounded-full h-12 sm:h-16 w-12 sm:w-16 border-b-2 border-indigo-600 mx-auto"></div>
+          <p className="text-lg sm:text-xl text-gray-700">Evaluating your answers...</p>
+          <p className="text-sm sm:text-base text-gray-500">This may take a few moments</p>
         </div>
       </div>
     );
@@ -143,10 +143,10 @@ function TestPageContent() {
 
   if (evaluationError) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-8 px-4">
-        <div className="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-4 sm:py-8 px-4">
+        <div className="max-w-2xl w-full bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
           <div className="text-center space-y-4">
-            <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+            <div className="mx-auto w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-full flex items-center justify-center">
               <svg
                 className="w-8 h-8 text-red-600"
                 fill="none"
@@ -161,7 +161,7 @@ function TestPageContent() {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">평가 중 오류가 발생했습니다</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">평가 중 오류가 발생했습니다</h2>
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-left">
               <p className="text-red-800 text-sm font-medium">{evaluationError}</p>
             </div>
@@ -186,13 +186,13 @@ function TestPageContent() {
               </div>
             )}
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={() => {
                 setEvaluationError(null);
                 handleComplete();
               }}
-              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
             >
               다시 시도
             </button>
@@ -201,7 +201,7 @@ function TestPageContent() {
                 setEvaluationError(null);
                 router.push("/");
               }}
-              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-semibold transition-colors"
+              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
             >
               홈으로 돌아가기
             </button>
@@ -213,25 +213,25 @@ function TestPageContent() {
 
   if (isTestComplete && feedback) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8 px-4">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Test Complete!</h1>
-            <p className="text-gray-600">Your results are ready</p>
+      <div className="min-h-screen bg-gray-50 py-4 sm:py-6 md:py-8 px-4">
+        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 text-center">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Test Complete!</h1>
+            <p className="text-sm sm:text-base text-gray-600">Your results are ready</p>
           </div>
 
           <FeedbackCard feedback={feedback} />
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={() => router.push("/history")}
-              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
             >
               View History
             </button>
             <button
               onClick={() => router.push("/")}
-              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-semibold transition-colors"
+              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
             >
               Home
             </button>
@@ -242,11 +242,11 @@ function TestPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="mb-6 flex items-center justify-between">
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-6 md:py-8 px-4">
+      <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
         <button
           onClick={() => router.push("/")}
-          className="text-gray-600 hover:text-gray-900 transition-colors"
+          className="text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors min-h-[44px] flex items-center"
         >
           ← Back to Home
         </button>

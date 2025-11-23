@@ -101,24 +101,24 @@ function PracticePageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-6 md:py-8 px-4">
+      <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">연습 모드</h1>
-            <p className="text-gray-600 mt-1">시간 제한 없이 자유롭게 연습하세요</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">연습 모드</h1>
+            <p className="text-sm sm:text-base text-gray-600 mt-1">시간 제한 없이 자유롭게 연습하세요</p>
           </div>
           <button
             onClick={() => router.push("/")}
-            className="text-gray-600 hover:text-gray-900 transition-colors"
+            className="text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors min-h-[44px] flex items-center"
           >
             ← Home
           </button>
         </div>
 
         {/* 주제 선택 */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">주제 선택</h2>
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">주제 선택</h2>
           <TopicSelector
             selectedTopics={selectedTopics}
             onTopicsChange={setSelectedTopics}
@@ -127,7 +127,7 @@ function PracticePageContent() {
         </div>
 
         {/* 진행 표시 */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-600">
               Question {currentQuestionIndex + 1} of {questions.length}
@@ -154,9 +154,9 @@ function PracticePageContent() {
         />
 
         {/* 녹음 섹션 */}
-        <div className="bg-white rounded-xl shadow-lg p-6 space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">답변 녹음</h3>
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 space-y-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900">답변 녹음</h3>
             <AudioRecorder
               isRecording={isRecording}
               onStartRecording={handleStartRecording}
@@ -165,11 +165,11 @@ function PracticePageContent() {
             />
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={() => setIsRecording(!isRecording)}
               disabled={!isRecording && recordingStartTime !== null}
-              className={`flex-1 py-3 px-6 rounded-lg font-semibold transition-colors ${
+              className={`flex-1 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
                 isRecording
                   ? "bg-red-600 hover:bg-red-700 text-white"
                   : "bg-indigo-600 hover:bg-indigo-700 text-white disabled:bg-gray-400"
@@ -179,7 +179,7 @@ function PracticePageContent() {
             </button>
             <button
               onClick={() => setShowSampleAnswer(!showSampleAnswer)}
-              className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-semibold transition-colors"
+              className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
             >
               {showSampleAnswer ? "Hide" : "Show"} Sample Answer
             </button>
@@ -209,18 +209,18 @@ function PracticePageContent() {
         )}
 
         {/* 네비게이션 */}
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <button
             onClick={handlePrevious}
             disabled={currentQuestionIndex === 0}
-            className="flex-1 bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 text-gray-800 py-3 px-6 rounded-lg font-semibold transition-colors"
+            className="flex-1 bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 text-gray-800 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
           >
             Previous
           </button>
           <button
             onClick={handleNext}
             disabled={currentQuestionIndex === questions.length - 1}
-            className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+            className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
           >
             Next
           </button>

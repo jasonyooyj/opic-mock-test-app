@@ -25,17 +25,17 @@ export default function QuestionCard({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
+    <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <span className="bg-indigo-100 text-indigo-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
             {getQuestionTypeLabel(question.type)}
           </span>
-          <span className="text-gray-500 text-sm">
+          <span className="text-gray-500 text-xs sm:text-sm">
             Question {questionNumber} of {totalQuestions}
           </span>
         </div>
-        <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
+        <span className="bg-gray-100 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
           {question.level}
         </span>
       </div>
@@ -62,5 +62,6 @@ export default function QuestionCard({
     </div>
   );
 }
+
 
 

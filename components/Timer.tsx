@@ -64,13 +64,13 @@ export default function Timer({
   return (
     <div className="flex flex-col items-center">
       {phase && (
-        <div className={`text-sm font-semibold mb-1 ${
+        <div className={`text-xs sm:text-sm font-semibold mb-1 ${
           isPreparationPhase ? "text-blue-600" : "text-green-600"
         }`}>
           {isPreparationPhase ? "Preparation" : "Speaking"}
         </div>
       )}
-      <div className={`text-4xl font-bold ${
+      <div className={`text-3xl sm:text-4xl font-bold ${
         isLowTime ? "text-red-600" : isPreparationPhase ? "text-blue-600" : "text-gray-800"
       }`}>
         {String(minutes).padStart(2, "0")}:{String(displaySeconds).padStart(2, "0")}

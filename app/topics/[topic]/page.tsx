@@ -37,12 +37,12 @@ export default function TopicPage() {
 
   if (!topic) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="text-center space-y-4">
-          <p className="text-gray-600">주제를 찾을 수 없습니다.</p>
+          <p className="text-sm sm:text-base text-gray-600">주제를 찾을 수 없습니다.</p>
           <Link
             href="/practice"
-            className="text-indigo-600 hover:text-indigo-700 font-semibold"
+            className="text-sm sm:text-base text-indigo-600 hover:text-indigo-700 font-semibold min-h-[44px] flex items-center justify-center"
           >
             연습 모드로 돌아가기
           </Link>
@@ -52,19 +52,19 @@ export default function TopicPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-6 md:py-8 px-4">
+      <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <div className="flex items-center justify-between">
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">{topic.nameKo}</h1>
-              <p className="text-gray-600 mt-1">{topic.name}</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{topic.nameKo}</h1>
+              <p className="text-sm sm:text-base text-gray-600 mt-1">{topic.name}</p>
             </div>
             <div className="flex gap-2">
               <button
                 onClick={() => setLevel("IH")}
-                className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+                className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
                   level === "IH"
                     ? "bg-indigo-600 text-white"
                     : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -74,7 +74,7 @@ export default function TopicPage() {
               </button>
               <button
                 onClick={() => setLevel("AL")}
-                className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+                className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
                   level === "AL"
                     ? "bg-indigo-600 text-white"
                     : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -84,16 +84,16 @@ export default function TopicPage() {
               </button>
             </div>
           </div>
-          <div className="mt-4 flex gap-4">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
               href="/practice"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors min-h-[44px] flex items-center"
             >
               ← 연습 모드
             </Link>
             <Link
               href={`/practice?topic=${topicId}`}
-              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] flex items-center justify-center"
             >
               이 주제로 연습하기
             </Link>
@@ -101,13 +101,13 @@ export default function TopicPage() {
         </div>
 
         {questions.length === 0 ? (
-          <div className="bg-white rounded-xl shadow-lg p-12 text-center">
-            <p className="text-gray-500 text-lg">
+          <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-12 text-center">
+            <p className="text-gray-500 text-base sm:text-lg">
               이 주제에 대한 질문이 아직 없습니다.
             </p>
             <Link
               href="/practice"
-              className="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+              className="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 sm:px-6 rounded-lg transition-colors text-sm sm:text-base min-h-[44px] flex items-center justify-center"
             >
               다른 주제 보기
             </Link>
@@ -115,7 +115,7 @@ export default function TopicPage() {
         ) : (
           <>
             {/* Progress */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-600">
                   Question {currentQuestionIndex + 1} of {questions.length}
@@ -154,13 +154,13 @@ export default function TopicPage() {
               )}
 
             {/* Navigation */}
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={() =>
                   setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))
                 }
                 disabled={currentQuestionIndex === 0}
-                className="flex-1 bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 text-gray-800 py-3 px-6 rounded-lg font-semibold transition-colors"
+                className="flex-1 bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 text-gray-800 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
               >
                 Previous
               </button>
@@ -171,18 +171,18 @@ export default function TopicPage() {
                   )
                 }
                 disabled={currentQuestionIndex === questions.length - 1}
-                className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+                className="flex-1 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
               >
                 Next
               </button>
             </div>
 
             {/* Question List */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
                 모든 질문 ({questions.length}개)
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 {questions.map((question, index) => (
                   <button
                     key={question.id}
@@ -206,5 +206,6 @@ export default function TopicPage() {
     </div>
   );
 }
+
 
 

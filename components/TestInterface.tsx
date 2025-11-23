@@ -186,10 +186,10 @@ export default function TestInterface({
         totalQuestions={questions.length}
       />
 
-      <div className="bg-white rounded-xl shadow-lg p-6 space-y-4">
-        <div className="flex items-center justify-between">
+      <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 space-y-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           {!preparationComplete ? (
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
               <Timer
                 initialSeconds={PREPARATION_TIME}
                 onPhaseComplete={handlePreparationComplete}
@@ -198,7 +198,7 @@ export default function TestInterface({
               />
               <button
                 onClick={handlePreparationComplete}
-                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors text-sm"
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors text-sm min-h-[44px]"
               >
                 Skip
               </button>
@@ -220,7 +220,7 @@ export default function TestInterface({
           />
         </div>
 
-        <div className="flex gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
           <button
             onClick={() => {
               if (!isRecording) {
@@ -230,7 +230,7 @@ export default function TestInterface({
               }
             }}
             disabled={!preparationComplete || (!isRecording && recordingStartTime !== null) || isProcessingRecording}
-            className={`flex-1 py-3 px-6 rounded-lg font-semibold transition-colors ${
+            className={`flex-1 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
               isRecording
                 ? "bg-red-600 hover:bg-red-700 text-white"
                 : !preparationComplete
@@ -247,7 +247,7 @@ export default function TestInterface({
           {!isRecording && recordingStartTime !== null && !isProcessingRecording && (
             <button
               onClick={handleNext}
-              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
             >
               {isLastQuestion ? "Complete Test" : "Next Question"}
             </button>
@@ -260,7 +260,7 @@ export default function TestInterface({
           {(currentQuestion.sampleAnswer || currentQuestion.audioPath) && (
             <button
               onClick={() => setShowSampleAnswer(!showSampleAnswer)}
-              className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-semibold transition-colors"
+              className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px]"
             >
               {showSampleAnswer ? "Hide" : "Show"} Sample
             </button>

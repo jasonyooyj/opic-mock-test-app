@@ -18,13 +18,13 @@ export default function ComparisonView({
   const [activeTab, setActiveTab] = useState<"user" | "sample" | "side-by-side">("side-by-side");
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 space-y-4">
-      <div className="border-b pb-4">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">답변 비교</h3>
-        <div className="flex gap-2">
+    <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 space-y-4">
+      <div className="border-b pb-3 sm:pb-4">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">답변 비교</h3>
+        <div className="flex flex-wrap gap-2 overflow-x-auto">
           <button
             onClick={() => setActiveTab("user")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] whitespace-nowrap ${
               activeTab === "user"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -34,7 +34,7 @@ export default function ComparisonView({
           </button>
           <button
             onClick={() => setActiveTab("sample")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] whitespace-nowrap ${
               activeTab === "sample"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -44,7 +44,7 @@ export default function ComparisonView({
           </button>
           <button
             onClick={() => setActiveTab("side-by-side")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] whitespace-nowrap ${
               activeTab === "side-by-side"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -104,7 +104,7 @@ export default function ComparisonView({
       )}
 
       {activeTab === "side-by-side" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           <div className="space-y-4">
             <h4 className="font-semibold text-gray-900">내 답변</h4>
             {showAudio && userAnswer.audioData && (

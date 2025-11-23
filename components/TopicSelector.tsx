@@ -51,7 +51,7 @@ export default function TopicSelector({
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setActiveCategory("all")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
               activeCategory === "all"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -61,7 +61,7 @@ export default function TopicSelector({
           </button>
           <button
             onClick={() => setActiveCategory("main")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
               activeCategory === "main"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -71,7 +71,7 @@ export default function TopicSelector({
           </button>
           <button
             onClick={() => setActiveCategory("surprise")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
               activeCategory === "surprise"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -81,7 +81,7 @@ export default function TopicSelector({
           </button>
           <button
             onClick={() => setActiveCategory("roleplay")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
               activeCategory === "roleplay"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -91,7 +91,7 @@ export default function TopicSelector({
           </button>
           <button
             onClick={() => setActiveCategory("summary")}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] ${
               activeCategory === "summary"
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -124,7 +124,7 @@ export default function TopicSelector({
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-h-96 overflow-y-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 max-h-96 overflow-y-auto">
         {getDisplayTopics().map((topic) => {
           const isSelected = selectedTopics.includes(topic.id);
           return (
@@ -153,5 +153,6 @@ export default function TopicSelector({
     </div>
   );
 }
+
 
 

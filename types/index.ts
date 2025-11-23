@@ -16,6 +16,8 @@ export interface Question {
   sampleAnswer?: string; // 모범 답안
   usefulExpressions?: string[]; // 유용한 표현 목록
   audioPath?: string; // 모범 답안 오디오 파일 경로
+  sampleAnswerSource?: "pdf" | "manual" | "ai"; // 답안 출처
+  sampleAnswerQuality?: "verified" | "unverified"; // 검증 상태
 }
 
 export interface Answer {

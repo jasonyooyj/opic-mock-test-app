@@ -78,17 +78,17 @@ export default function SampleAnswerPlayer({
 
   return (
     <div className={`bg-indigo-50 rounded-lg p-4 space-y-3 ${className}`}>
-      <div className="flex items-center justify-between">
-        <h4 className="font-semibold text-indigo-900">모범 답안</h4>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+        <h4 className="font-semibold text-sm sm:text-base text-indigo-900">모범 답안</h4>
         {audioPath && (
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-600">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full sm:w-auto">
+            <span className="text-xs sm:text-sm text-gray-600">
               {formatTime(currentTime)} / {formatTime(duration)}
             </span>
             <button
               onClick={togglePlay}
               disabled={!!error}
-              className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2"
+              className="bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2 text-sm sm:text-base min-h-[44px]"
             >
               {isPlaying ? (
                 <>

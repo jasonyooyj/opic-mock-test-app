@@ -110,14 +110,14 @@ export default function AudioRecorder({
   }, [isRecording, mediaRecorder, startRecording, stopRecording]);
 
   return (
-    <div className="flex items-center justify-center gap-4">
+    <div className="flex items-center justify-center gap-3 sm:gap-4">
       {isRecording ? (
-        <div className="flex items-center gap-3">
-          <div className="w-4 h-4 bg-red-600 rounded-full animate-pulse"></div>
-          <span className="text-red-600 font-semibold">Recording...</span>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-red-600 rounded-full animate-pulse"></div>
+          <span className="text-sm sm:text-base text-red-600 font-semibold">Recording...</span>
         </div>
       ) : (
-        <span className="text-gray-500">Ready to record</span>
+        <span className="text-sm sm:text-base text-gray-500">Ready to record</span>
       )}
     </div>
   );

@@ -12,7 +12,7 @@ export default function OnboardingPage() {
       icon: "🎤",
       content: (
         <div className="space-y-4">
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
             <strong>OPIc (Oral Proficiency Interview - computer)</strong>는 컴퓨터를 통해 진행되는 영어 말하기 시험으로, 
             수험자의 실제 회화 능력을 평가하는 시험입니다.
           </p>
@@ -48,14 +48,14 @@ export default function OnboardingPage() {
             <p className="text-gray-700 leading-relaxed">
               설문 작성 후, 원하는 난이도를 선택합니다. 선택한 난이도에 따라 질문의 복잡성과 심층성이 결정됩니다.
             </p>
-            <div className="grid grid-cols-2 gap-3 mt-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
               <div className="bg-green-50 p-3 rounded border border-green-200">
-                <p className="font-semibold text-green-800">IH (Intermediate High)</p>
-                <p className="text-sm text-green-700">중상급 레벨</p>
+                <p className="font-semibold text-sm sm:text-base text-green-800">IH (Intermediate High)</p>
+                <p className="text-xs sm:text-sm text-green-700">중상급 레벨</p>
               </div>
               <div className="bg-purple-50 p-3 rounded border border-purple-200">
-                <p className="font-semibold text-purple-800">AL (Advanced Low)</p>
-                <p className="text-sm text-purple-700">고급 레벨</p>
+                <p className="font-semibold text-sm sm:text-base text-purple-800">AL (Advanced Low)</p>
+                <p className="text-xs sm:text-sm text-purple-700">고급 레벨</p>
               </div>
             </div>
           </div>
@@ -295,20 +295,20 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-4 sm:py-6 md:py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <Link
             href="/"
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-4 transition-colors"
+            className="inline-flex items-center text-sm sm:text-base text-gray-600 hover:text-gray-900 mb-3 sm:mb-4 transition-colors"
           >
             ← 홈으로 돌아가기
           </Link>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             OPIc 시험 가이드
           </h1>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600">
             처음 시험을 보시는 분들을 위한 완벽한 가이드
           </p>
         </div>
@@ -332,22 +332,22 @@ export default function OnboardingPage() {
         </div>
 
         {/* Content Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-6 min-h-[500px]">
-          <div className="flex items-center mb-6">
-            <span className="text-4xl mr-4">{sections[currentStep].icon}</span>
-            <h2 className="text-3xl font-bold text-gray-900">
+        <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mb-6 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
+          <div className="flex items-center mb-4 sm:mb-6">
+            <span className="text-2xl sm:text-3xl md:text-4xl mr-3 sm:mr-4">{sections[currentStep].icon}</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
               {sections[currentStep].title}
             </h2>
           </div>
-          <div className="text-gray-700">{sections[currentStep].content}</div>
+          <div className="text-sm sm:text-base text-gray-700">{sections[currentStep].content}</div>
         </div>
 
         {/* Navigation */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           <button
             onClick={prevStep}
             disabled={currentStep === 0}
-            className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+            className={`px-4 sm:px-6 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] flex items-center justify-center ${
               currentStep === 0
                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                 : "bg-gray-200 hover:bg-gray-300 text-gray-800"
@@ -374,14 +374,14 @@ export default function OnboardingPage() {
           {currentStep < sections.length - 1 ? (
             <button
               onClick={nextStep}
-              className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold transition-colors"
+              className="px-4 sm:px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold transition-colors text-sm sm:text-base min-h-[44px] flex items-center justify-center"
             >
               다음 →
             </button>
           ) : (
             <Link
               href="/test?level=IH"
-              className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors text-center"
+              className="px-4 sm:px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors text-center text-sm sm:text-base min-h-[44px] flex items-center justify-center"
             >
               테스트 시작하기 →
             </Link>
@@ -396,22 +396,22 @@ export default function OnboardingPage() {
               <p className="mb-4 text-indigo-100">
                 이제 실제 모의고사를 통해 실력을 확인해보세요!
               </p>
-              <div className="flex gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   href="/test?level=IH"
-                  className="px-6 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  className="px-4 sm:px-6 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                 >
                   IH 레벨 테스트
                 </Link>
                 <Link
                   href="/test?level=AL"
-                  className="px-6 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  className="px-4 sm:px-6 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                 >
                   AL 레벨 테스트
                 </Link>
                 <Link
                   href="/practice"
-                  className="px-6 py-3 bg-indigo-700 text-white rounded-lg font-semibold hover:bg-indigo-800 transition-colors"
+                  className="px-4 sm:px-6 py-3 bg-indigo-700 text-white rounded-lg font-semibold hover:bg-indigo-800 transition-colors text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                 >
                   연습 모드
                 </Link>
@@ -423,5 +423,6 @@ export default function OnboardingPage() {
     </div>
   );
 }
+
 
 
