@@ -1,5 +1,4 @@
 import { Question } from "@/types";
-import { loadSampleAnswersForQuestions } from "./sample-answers";
 
 export const OPIC_QUESTIONS: Record<"IH" | "AL", Question[]> = {
   IH: [
@@ -138,17 +137,16 @@ export const OPIC_QUESTIONS: Record<"IH" | "AL", Question[]> = {
 
 export function getQuestionsForLevel(level: "IH" | "AL"): Question[] {
   const questions = OPIC_QUESTIONS[level];
-  // 저장된 모범 답안 로드
-  return loadSampleAnswersForQuestions(questions);
+  // Note: Sample answers are loaded separately via API or server-side only
+  return questions;
 }
 
 export function getQuestionById(id: string): Question | undefined {
   for (const questions of Object.values(OPIC_QUESTIONS)) {
     const question = questions.find((q) => q.id === id);
     if (question) {
-      // 저장된 모범 답안 로드
-      const questionsWithAnswers = loadSampleAnswersForQuestions([question]);
-      return questionsWithAnswers[0];
+      // Note: Sample answers are loaded separately via API or server-side only
+      return question;
     }
   }
   return undefined;
@@ -156,8 +154,8 @@ export function getQuestionById(id: string): Question | undefined {
 
 export function getQuestionsByTopic(level: "IH" | "AL", topic: string): Question[] {
   const questions = OPIC_QUESTIONS[level].filter((q) => q.topic === topic);
-  // 저장된 모범 답안 로드
-  return loadSampleAnswersForQuestions(questions);
+  // Note: Sample answers are loaded separately via API or server-side only
+  return questions;
 }
 
 export function getAllTopics(level: "IH" | "AL"): string[] {
@@ -170,21 +168,19 @@ export function getAllTopics(level: "IH" | "AL"): string[] {
 
 // HACKERS 데이터를 기존 질문에 병합
 export function mergeHackersQuestions(hackersQuestions: Question[]): void {
-  // 먼저 저장된 모범 답안 로드
-  const questionsWithAnswers = loadSampleAnswersForQuestions(hackersQuestions);
-  
-  questionsWithAnswers.forEach((hq) => {
+  // Note: Sample answers are loaded separately via API or server-side only
+  hackersQuestions.forEach((hq) => {
     const level = hq.level;
     const existingIndex = OPIC_QUESTIONS[level].findIndex((q) => q.id === hq.id);
     
     if (existingIndex >= 0) {
-      // 기존 질문 업데이트 (저장된 답안 포함)
+      // 기존 질문 업데이트
       OPIC_QUESTIONS[level][existingIndex] = {
         ...OPIC_QUESTIONS[level][existingIndex],
         ...hq,
       };
     } else {
-      // 새 질문 추가 (저장된 답안 포함)
+      // 새 질문 추가
       OPIC_QUESTIONS[level].push(hq);
     }
   });
